@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 1440px;
+    height: 783px;
+    margin: auto;
+}
+
+a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+}
+
+a:hover {
+    color: rgba(227, 184, 115, 1);
+}
+.completed {
+    display: flex;
+    background-color: rgba(19, 19, 19, 1);
+    width: 1440px;
+    height: 783px;
+}
+
+.completed_projects {
+    display: flex;
+    flex-direction: column;
+    column-gap: 9px;
+}
+
+h2 {
+    padding-top: 176px;
+    padding-left: 134px;
+    width: 291px;
+    height: 66px;
+    color: rgba(227, 184, 115, 1);
+    font-family: "Yeseva One";
+    font-weight: 400;
+    font-size: 27px;
+    line-height: 37px;
+    text-transform: uppercase;
+}
+
+.part {
+    margin-left: 134px;
+    margin-top: 100px;
+    margin-bottom: 42px;
+    width: 442px;
+    height: 86px;
+    color: rgba(255, 255, 255, 1);
+    font-family: "Nunito Sans";
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 27px;
+}
+
+h3 {
+    font-family: "Yeseva One";
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    color: rgba(227, 184, 115, 1);
+    text-transform: uppercase;
+}
+
+.information {
+    font-family: "Nunito Sans";
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 21px;
+    color: rgba(255, 255, 255, 1);
+}
+
+.characteristic {
+    display: grid;
+    grid-template: repeat(2, 41px)/ repeat(2, 125px);
+    column-gap: 95px;
+    row-gap: 34px;
+    margin-left: 134px;
+    margin-top: 42px;
+}
+.slider {
+    position: relative;
+}
+.strokes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 205px;
+    height: 13px;
+    margin-left: 135px;
+    margin-top: 79px;
+}
+.slider__arrow {
+    color: rgba(255, 255, 255, 1);
+    cursor: pointer;
+}
+
+.ball {
+    color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+}
+
+.choise {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    gap: 60px;
+    list-style: none;
+    margin-top: 107px;
+    margin-left: 50px;
+    font-family: "Yeseva One";
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.slider__images {
+    position: relative;
+    width: 679px;
+    height: 482px;
+    margin-top: 176px;
+    margin-left: 50px;
+}
