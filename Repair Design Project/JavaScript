@@ -1,28 +1,36 @@
 let images = [
   {
-   url: "https://s3-alpha-sig.figma.com/img/84d2/4980/7f2a0f3b4ed9cd6671fa4e811b625992?Expires=1744588800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=MkgBfczkjHolAcTe3Xm7MhhTyYJWTFkLDMi6ns~LWdAM11kjcwpf490QkLdvljMN6RDY9NHyCql-WTSY5AvdkxgDctYxXL-fAqP4md2Fuz3H-wcAJunGOsjg2m4f5GEq7KWwDo7OI1MmXd8zNtNnglpOH6F7zBpCB8rZdqAYB8ombJZPpF-oYS3hoceXJ92Wu6txpM5yCLVUzxY~JRtkEfbjqE-Zlj-VaVi-W~d4Hed~CbJlquVDFGHAFOdLCg8hSLrmtgEfYvwteDQMW46CQlEY4us6jAWnFqj~P~bYlAA6eADTS~ZXqiwLLrVWNCtr5LupiNVYBEEcPqm14wqkDQ__",
-   title: "Rostov-on-Don, Admiral"
+   url: "./image/Rostov-on-DonAdmiral.png",
+   title: "Rostov-on-Don Admiral"
 }, {
-   url: "https://s3-alpha-sig.figma.com/img/2b61/d91d/0d504ae5ddf821a6b6600ee9bd6d98fa?Expires=1744588800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=B7l4XsZFIunesDSjR2KgHuak0uSyoFvJNHfIh-AOmOsL7Is-RkdNwQILFFggO7Q5vqTxYlRYuRh5Wgga4Uav4KOfcMWPDUMghtxX-bqx-2tuvCiY4IebDXcz1EwV6WILD-LIqqVPyXDMzyWL5mFLWHlQqOvseA2r~uTLcQtvzIJnsSguJ~-iEaD0aJxfbtrQtrqCC8-Xt2l99CTRSemedNYc1Lz7E1ogD1lY3UPSnZBc1YMZbnosReuPlRPFKQaDOXtyL3S5pS4xO4OxwB9VtGhKISMvp5eq0r42dFOngL7ogIxdx4vxIgVm9LvwRrT8kPZZg-gEOpLWohCTWieWjg__",
+   url: "./image/SochiThieves.png",
    title: "Sochi Thieves"
 }, {
-   url: "https://s3-alpha-sig.figma.com/img/2882/358d/e0332eab0ee26bbd0cebfe5592a469dc?Expires=1744588800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=Qy2fgdxjxYJc33Pd6eMIkyQncuuDYEqOwzL420ms4jHegY2xxmc3Bc29iICF~rWg~I6HsFMfAp56CAEpqDzkFvxHnetpxIiU3RGOyAb4R241zpgafdOm0Uq~YEdNROAvHLe1NNgf-O-uRSCueBDLMQSfouqrJ4QKoxRTgkMHnJH7QQVfnHqEuiXIvJB5Mdhq0EN8QadkzS8RtNWiDDbxO0sbKTZj2DdaygteuLDfnbamABhtxpuN7q8X1R0DXuv4rNeIj48wv~sOEshFyj1IdTj32fuQ-eTwea3cIuhwTwxb4I8ie-cVnD8IA9C1JEYoO8btScvF~HzhI~i8IVk62Q__",
+   url: "./image/Rostov-on-DonPatriotic.png",
    title: "Rostov-on-Don Patriotic"
 }];
+
+let sliderImages;
+let sliderArrows;
 
 
 function initSlider() {
   if(!images || !images.length) return;
 
-  let sliderImages = document.querySelector(".slider__images")
-  let sliderArrows = document.querySelector(".slider__arrow")
+sliderImages = document.querySelector(".slider__images")
+sliderArrows = document.querySelector(".slider__arrows")
+sliderBalls = document.querySelector(".slider__balls")
+sliderCharacteristic = document.querySelector(".slider_characteristic")
 }
 
-
+  initSlider();
   initImages();
   initArrows();
+  initBalls();
 
-function initImages () {
+
+
+function initImages() {
   images.forEach((image, index) => {
     let ImageDiv = `<div class ="image n${index} ${index === 0? "active" : ""}" style="background-image: url(${images[index].url});" data-index = "${index}"></div>`;
     sliderImages.innerHTML += ImageDiv;
@@ -42,6 +50,24 @@ function initArrows() {
       moveSlider(nextNumber);
     });
   });
+}
+
+function initBalls() {
+  images.forEach((image, index) => {
+    let ball = `<div class="slider__balls-item n${index} ${index === 0? "active" : ""}" data-index="${index}"></div>`;
+    sliderBalls.innerHTML += ball;
+  });
+  sliderBalls.querySelectorAll(".slider__balls-item").forEach(ball => {
+    ball.addEventListener("click", function() {
+      moveSlider(this.dataset.index);
+    })
+  })
+}
+
+
+function moveSlider(num) {
+  sliderImages.querySelector(".active").classList.remove("active");
+  sliderImages.querySelector(".n" + num).classList.add("active");
 }
 
 
